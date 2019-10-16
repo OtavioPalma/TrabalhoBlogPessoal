@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/service/api.service';
 import { Post } from 'src/model/post';
-import { AppService } from 'src/app.service';
+import { AppService } from 'src/service/app.service';
 
 @Component({
   selector: 'app-pagina-post',

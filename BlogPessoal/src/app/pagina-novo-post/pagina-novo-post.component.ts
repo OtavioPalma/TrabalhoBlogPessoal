@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
 import { Usuario } from 'src/model/usuario';
-import { AppService } from 'src/app.service';
+import { AppService } from 'src/service/app.service';
 
 @Component({
   selector: 'app-pagina-novo-post',
   templateUrl: './pagina-novo-post.component.html',
   styleUrls: ['./pagina-novo-post.component.css']
 })
+
 export class PaginaNovoPostComponent implements OnInit {
   title: String;
   postForm: FormGroup;
@@ -43,6 +44,11 @@ export class PaginaNovoPostComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+    this.postForm.controls['title'].setValue("");
+    this.postForm.controls['title'].setErrors(null);
+    this.postForm.controls['body'].setValue("");
+    this.postForm.controls['body'].setErrors(null);
+    this.postForm.controls['userId'].setValue(0);
+    this.postForm.controls['userId'].setErrors(null);
   }
-
 }

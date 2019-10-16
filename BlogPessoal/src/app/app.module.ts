@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppService } from 'src/app.service';
+import { AppService } from 'src/service/app.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaginaNovoPostComponent } from './pagina-novo-post/pagina-novo-post.component';

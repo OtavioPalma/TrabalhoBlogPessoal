@@ -10,3 +10,8 @@
   max-width: 500px;
   margin: 10px;
 }
+
+mat-card-content {
+  max-height: 100px;
+  overflow: hidden;
+}

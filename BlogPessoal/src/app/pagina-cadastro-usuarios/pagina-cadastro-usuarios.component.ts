@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app.service';
+import { AppService } from 'src/service/app.service';
 
 @Component({
   selector: 'app-pagina-cadastro-usuarios',
