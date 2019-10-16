@@ -1,0 +1,12 @@
+.container {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item-card {
+  max-width: 500px;
+  margin: 10px;
+}
