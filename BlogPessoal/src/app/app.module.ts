@@ -21,11 +21,13 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatGridListModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     PaginaSobreComponent,
     PaginaContatoComponent,
     MenuComponent,
-    PaginaPostComponent
+    PaginaPostComponent,
+    PaginaComentariosComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSidenavModule,
     MatTableModule,
     MatToolbarModule,
-    LayoutModule
+    LayoutModule,
+    MatGridListModule
   ],
   providers: [
     AppService

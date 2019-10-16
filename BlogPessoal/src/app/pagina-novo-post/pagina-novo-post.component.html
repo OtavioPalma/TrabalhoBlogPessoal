@@ -12,7 +12,7 @@
     </mat-form-field>
   </div>
   <mat-form-field>
-    <textarea matTextareaAutosize matAutosizeMinRows=10 matInput name="body" placeholder="Conteúdo do Post"
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" matInput name="body" placeholder="Conteúdo do Post"
       formControlName="body"></textarea>
   </mat-form-field>
 

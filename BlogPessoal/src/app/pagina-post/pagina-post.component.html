@@ -1,8 +1,8 @@
 <div class="container">
-  <mat-card flex="40"  class="item-card" *ngFor="let post of dataSource">
+  <mat-card class="item-card" *ngFor="let post of dataSource">
     <mat-card-header>
       <mat-card-title>{{post.title}}</mat-card-title>
-      <mat-card-subtitle> {{post.username}} </mat-card-subtitle>
+      <mat-card-subtitle> {{post.username}} em {{post.createdAt}} </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://picsum.photos/750/600?random={{dataSource.indexOf(post)}}">
     <mat-card-content>
@@ -11,7 +11,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions align="center">
-      <button mat-button>Continuar Lendo</button>
+      <button mat-button type="button" routerLink="/comentario/{{post.id}}">Continuar Lendo</button>
     </mat-card-actions>
   </mat-card>
 </div>

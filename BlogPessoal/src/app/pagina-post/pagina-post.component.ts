@@ -11,7 +11,6 @@ import { AppService } from 'src/service/app.service';
 
 export class PaginaPostComponent implements OnInit {
 
-  posts: string[] = ['title', 'body', 'userId'];
   dataSource: Post[];
 
   constructor(private _api: ApiService, private appService: AppService) { }
@@ -24,5 +23,4 @@ export class PaginaPostComponent implements OnInit {
       console.log(err);
     });
   }
-
 }

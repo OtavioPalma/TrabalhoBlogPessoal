@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { Post } from 'src/model/post';
 import { Usuario } from 'src/model/usuario';
+import { Comentario } from 'src/model/comentario';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,6 +24,20 @@ export class ApiService {
       );
   }
 
+  getPost(id): Observable<Post> {
+    return this.http.get<Post>(`http://localhost:5000/api/post/${id}`)
+      .pipe(
+        catchError(this.handleError<Post>(`getPost id = ${id}`))
+      );
+  }
+
+  addPost(post): Observable<Post> {
+    return this.http.post<Post>('http://localhost:5000/api/posts', post, httpOptions)
+      .pipe(
+        catchError(this.handleError<Post>('addPost'))
+      );
+  }
+
   getUsers(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>('http://localhost:5000/api/users')
       .pipe(
@@ -30,28 +45,18 @@ export class ApiService {
       );
   }
 
-  addPost(post): Observable<Post> {
-    return this.http.post<Post>('http://localhost:5000/api/posts', post, httpOptions).pipe(
-      tap((post: Post) => console.log(`adicionou o post com w/ id=${post._id}`)),
-      catchError(this.handleError<Post>('addPost'))
-    );
+  addComment(comment): Observable<Comentario> {
+    return this.http.post<Comentario>('http://localhost:5000/api/comments', comment, httpOptions)
+      .pipe(
+        catchError(this.handleError<Comentario>('addComment'))
+      );
   }
 
-  updatePost(id, post): Observable<Post> {
-    const url = `${'http://localhost:5000/api/posts'}/${id}`;
-    return this.http.put(url, post, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o post com id=${id}`)),
-      catchError(this.handleError<any>('updatePost'))
-    );
-  }
-
-  deletePost(id): Observable<Post> {
-    const url = `${'http://localhost:5000/api/posts'}/delete/${id}`;
-
-    return this.http.delete<Post>(url, httpOptions).pipe(
-      tap(_ => console.log(`remove o post com id=${id}`)),
-      catchError(this.handleError<Post>('deletePost'))
-    );
+  getComments(post_id): Observable<Comentario[]> {
+    return this.http.get<Comentario[]>(`http://localhost:5000/api/comments/${post_id}`)
+      .pipe(
+        catchError(this.handleError<Comentario[]>(`getComment post_id = ${post_id}`, []))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

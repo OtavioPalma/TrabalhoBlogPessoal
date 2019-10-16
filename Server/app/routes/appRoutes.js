@@ -6,7 +6,16 @@ module.exports = function (app) {
         .get(todoList.list_all_posts)
         .post(todoList.create_a_post);
 
+    app.route('/api/post/:id')
+        .get(todoList.read_a_post);
+
     app.route('/api/users')
         .get(todoList.list_all_users)
         .post(todoList.create_a_user);
+
+    app.route('/api/comments')
+        .post(todoList.create_a_comment);
+
+    app.route('/api/comments/:post_id')
+        .get(todoList.list_all_comments);
 };

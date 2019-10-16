@@ -12,7 +12,6 @@ import { AppService } from 'src/service/app.service';
 })
 
 export class PaginaNovoPostComponent implements OnInit {
-  title: String;
   postForm: FormGroup;
   users: string[] = ['username', 'id'];
   dataSource: Usuario[];

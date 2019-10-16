@@ -5,6 +5,7 @@ import { PaginaContatoComponent } from './pagina-contato/pagina-contato.componen
 import { PaginaNovoPostComponent } from './pagina-novo-post/pagina-novo-post.component';
 import { PaginaSobreComponent } from './pagina-sobre/pagina-sobre.component';
 import { PaginaPostComponent } from './pagina-post/pagina-post.component';
+import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: 'sobre',
     component: PaginaSobreComponent,
     data: { title: 'Sobre' }
+  },
+  {
+    path: 'comentario/:id',
+    component: PaginaComentariosComponent,
+    data: { title: 'Comentários' }
   },
   {
     path: '',

@@ -1,0 +1,44 @@
+.container {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-card {
+  max-width: 80%;
+}
+
+.comment-container {
+  margin: 0 5% 0 5%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+mat-form-field {
+  padding: 10px;
+}
+
+.divOne {
+  min-width: 45%;
+}
+
+.divTwo {
+  min-width: 45%;
+}
+
+.email {
+  min-width: 30%;
+}
+
+.title {
+  min-width: 50%;
+}
+
+.body {
+  min-width: 85%;
+}
+
