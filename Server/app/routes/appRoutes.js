@@ -18,4 +18,7 @@ module.exports = function (app) {
 
     app.route('/api/comments/:post_id')
         .get(todoList.list_all_comments);
+
+    app.route('/api/user')
+        .post(todoList.create_a_user);
 };

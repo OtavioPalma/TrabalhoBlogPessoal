@@ -22,7 +22,7 @@
 </div>
 
 <div class="comment-container">
-  <div flex="50" class="divOne">
+  <div class="divOne">
     <form class="example-container" [formGroup]="commentForm" (ngSubmit)="addComment(commentForm.value)">
       <div>
         <mat-form-field class="email">
@@ -31,6 +31,7 @@
         <mat-form-field class="title">
           <input matInput name="title" placeholder="Título" formControlName="title">
         </mat-form-field>
+        <button type="submit" [disabled]="!commentForm.valid" mat-raised-button color="primary">Enviar</button>
       </div>
       <div>
         <mat-form-field class="body">
@@ -38,7 +39,6 @@
             matInput name="body" placeholder="Comentário" formControlName="body"></textarea>
         </mat-form-field>
       </div>
-      <button type="submit" [disabled]="!commentForm.valid" mat-raised-button color="primary">Enviar</button>
     </form>
   </div>
   <div class="divTwo">
@@ -53,6 +53,12 @@
           <span class="mat-h3"> {{comment.title}} </span>
           <span> -- {{comment.body}} </span>
         </p>
+        <button color="accent" mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button color="warn" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-list-item>
     </mat-list>
   </div>

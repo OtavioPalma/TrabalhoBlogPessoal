@@ -10,8 +10,16 @@
         {{post.body}}
       </p>
     </mat-card-content>
-    <mat-card-actions align="center">
-      <button mat-button type="button" routerLink="/comentario/{{post.id}}">Continuar Lendo</button>
+    <mat-card-actions class="button">
+      <button mat-raised-button color="primary" routerLink="/comentario/{{post.id}}">Continuar Lendo</button>
+      <div class="button-end">
+        <button (click)="edit()" color="accent" mat-icon-button> 
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button color="warn" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -1,1 +1,15 @@
-<p>pagina-contato works!</p>
+<form class="example-container" [formGroup]="contatoForm" (ngSubmit)="sendMessage(contatoForm.value)">
+  <div>
+    <mat-form-field>
+      <input matInput name="name" placeholder="Nome" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="email" placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <button type="submit" [disabled]="!contatoForm.valid" mat-raised-button color="primary">Enviar</button>
+  </div>
+  <mat-form-field class="contatoBody">
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"
+      matInput name="body" placeholder="Digite aqui sua mensagem" formControlName="body"></textarea>
+  </mat-form-field>
+</form>

@@ -26,7 +26,6 @@ export class PaginaNovoPostComponent implements OnInit {
     this.appService.setTitle('Novo Post');
     this._api.getUsers().subscribe(res => {
       this.dataSource = res;
-      console.log(this.dataSource);
     }, err => {
       console.log(err);
     });
@@ -40,6 +39,7 @@ export class PaginaNovoPostComponent implements OnInit {
 
   addPost(form: NgForm) {
     this._api.addPost(form).subscribe(res => {
+      console.log(form)
     }, (err) => {
       console.log(err);
     });

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/service/app.service';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pagina-contato',
@@ -7,11 +8,27 @@ import { AppService } from 'src/service/app.service';
   styleUrls: ['./pagina-contato.component.css']
 })
 export class PaginaContatoComponent implements OnInit {
+  contatoForm: FormGroup;
 
-  constructor(private appService: AppService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private appService: AppService) { }
 
   ngOnInit() {
     this.appService.setTitle('Contato');
+    this.contatoForm = this.formBuilder.group({
+      'name': [null, Validators.required],
+      'email': [null, Validators.required],
+      'body': [null, Validators.required]
+    });
   }
 
+  sendMessage(form: NgForm) {
+    this.contatoForm.controls['name'].setValue("");
+    this.contatoForm.controls['name'].setErrors(null);
+    this.contatoForm.controls['body'].setValue("");
+    this.contatoForm.controls['body'].setErrors(null);
+    this.contatoForm.controls['email'].setValue("");
+    this.contatoForm.controls['email'].setErrors(null);
+  }
 }

@@ -30,7 +30,7 @@ export class PaginaComentariosComponent implements OnInit {
       'title': [null, Validators.required],
       'body': [null, Validators.required],
       'email': [null, Validators.required],
-      'post_id': [this.route.snapshot.params['id']] 
+      'post_id': [this.route.snapshot.params['id']]
     });
   }
 

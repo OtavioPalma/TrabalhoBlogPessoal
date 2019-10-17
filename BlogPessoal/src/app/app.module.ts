@@ -58,7 +58,7 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
     MatTableModule,
     MatToolbarModule,
     LayoutModule,
-    MatGridListModule
+    MatGridListModule,
   ],
   providers: [
     AppService

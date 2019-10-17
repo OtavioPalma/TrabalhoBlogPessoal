@@ -23,7 +23,7 @@ Post.createPost = function (newPost, result) {
 };
 
 Post.getAllPosts = function (result) {
-    sql.query("SELECT p.id, p.title, p.body, u.username, DATE_FORMAT(p.createdAt, '%d/%m/%Y às %H:%i') AS createdAt FROM post p INNER JOIN user u ON u.id = p.user_id ORDER BY p.createdAt", function (err, res) {
+    sql.query("SELECT p.id, p.title, p.body, u.username, DATE_FORMAT(p.createdAt, '%d/%m/%Y às %H:%i') AS createdAt FROM post p INNER JOIN user u ON u.id = p.user_id ORDER BY p.createdAt DESC", function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);

@@ -1,0 +1,12 @@
+.example-container {
+    display: flex;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  mat-form-field {
+    padding: 10px;
+    max-width: 98%;
+  }
+  

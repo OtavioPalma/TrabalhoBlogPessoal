@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from 'src/service/api.service';
 import { Post } from 'src/model/post';
 import { AppService } from 'src/service/app.service';
@@ -10,10 +10,14 @@ import { AppService } from 'src/service/app.service';
 })
 
 export class PaginaPostComponent implements OnInit {
+  title: string;
+  body: string;
 
   dataSource: Post[];
 
-  constructor(private _api: ApiService, private appService: AppService) { }
+  constructor(
+    private _api: ApiService,
+    private appService: AppService) { }
 
   ngOnInit() {
     this.appService.setTitle('Página Principal');

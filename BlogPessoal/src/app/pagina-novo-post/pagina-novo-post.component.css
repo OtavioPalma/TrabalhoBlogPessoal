@@ -6,23 +6,11 @@
   justify-content: center;
 }
 
-.example-container>* {
-  width: 100%;
-}
-
 mat-form-field {
   padding: 10px;
   max-width: 98%;
 }
 
-.postUser {
-  min-width: 20%;
-}
-
-.postTitle {
-  min-width: 76%;
-}
-
-.btn {
-  max-width: 20%;
+.postBody {
+  min-width: 70%;
 }

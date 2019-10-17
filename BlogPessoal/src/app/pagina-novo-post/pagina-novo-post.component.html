@@ -1,20 +1,21 @@
-<form class="example-container" [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
-  <div>
-    <mat-form-field class="postTitle">
-      <input matInput name="title" placeholder="Título do Post" formControlName="title">
+<div>
+  <form class="example-container" [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
+    <div>
+      <mat-form-field>
+        <input matInput name="title" placeholder="Título do Post" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Usuário" name="userId" formControlName="userId">
+          <mat-option *ngFor="let user of dataSource" [value]="user.id">
+            {{user.username}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit" [disabled]="!postForm.valid" mat-raised-button color="primary">Adicionar</button>
+    </div>
+    <mat-form-field class="postBody">
+      <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"
+        matInput name="body" placeholder="Conteúdo do Post" formControlName="body"></textarea>
     </mat-form-field>
-    <mat-form-field class="postUser">
-      <mat-select placeholder="Usuário" name="userId" formControlName="userId">
-        <mat-option *ngFor="let user of dataSource" [value]="user.id">
-          {{user.username}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <mat-form-field>
-    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" matInput name="body" placeholder="Conteúdo do Post"
-      formControlName="body"></textarea>
-  </mat-form-field>
-
-  <button class="btn" type="submit" [disabled]="!postForm.valid" mat-button color="primary">Adicionar</button>
-</form>
+  </form>
+</div>

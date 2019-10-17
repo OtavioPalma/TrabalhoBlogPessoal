@@ -31,11 +31,11 @@ mat-form-field {
 }
 
 .email {
-  min-width: 30%;
+  min-width: 25%;
 }
 
 .title {
-  min-width: 50%;
+  min-width: 40%;
 }
 
 .body {
