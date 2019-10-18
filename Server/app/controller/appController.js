@@ -56,7 +56,6 @@ exports.list_all_comments = function (req, res) {
 
 exports.create_a_comment = function (req, res) {
     var new_comment = new Comment(req.body);
-    console.log(new_comment)
     Comment.createComment(new_comment, function (err, comment) {
         if (err)
             res.send(err);

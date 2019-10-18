@@ -1,14 +1,21 @@
-<form class="example-container" [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)">
-  <div>
-    <mat-form-field class="name">
-      <input matInput name="name" placeholder="Nome" formControlName="name">
-    </mat-form-field>
-    <mat-form-field class="username">
-      <input matInput name="username" placeholder="Nome de Usuário" formControlName="username">
-    </mat-form-field>
-    <mat-form-field class="email">
-      <input matInput name="email" placeholder="Email" formControlName="email">
-    </mat-form-field>
-    <button class="btn" type="submit" [disabled]="!userForm.valid" mat-raised-button color="primary">Adicionar</button>
+  <div class="container">
+    <mat-card class="item-card">
+      <form [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)">
+        <mat-card-header>
+          <mat-form-field class="name">
+            <input matInput name="name" placeholder="Nome" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="username">
+            <input matInput name="username" placeholder="Nome de Usuário" formControlName="username">
+          </mat-form-field>
+          <mat-form-field class="email">
+            <input matInput name="email" placeholder="Email" formControlName="email">
+          </mat-form-field>
+        </mat-card-header>
+        <mat-card-actions>
+          <button class="btnSend" type="submit" [disabled]="!userForm.valid" mat-raised-button
+            color="primary">Adicionar</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
   </div>
-</form>

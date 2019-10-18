@@ -10,3 +10,38 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+.my-class .mat-dialog-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .dialog-item-card {
+  max-width: 80%;
+  min-width: 80%;
+  margin-bottom: 25px;
+  background-color: black;
+}
+
+.btnSend {
+  left: 6%;
+}
+
+.title {
+  min-width: 42%;
+  padding: 10px;
+}
+
+.users {
+  min-width: 42%;
+  padding: 10px;
+}
+
+.body {
+  margin-left: 4%;
+  min-width: 87%;
+  padding: 10px;
+} */

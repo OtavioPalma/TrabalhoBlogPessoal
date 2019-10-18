@@ -7,7 +7,7 @@ import { PaginaNovoPostComponent } from './pagina-novo-post/pagina-novo-post.com
 import { PaginaCadastroUsuariosComponent } from './pagina-cadastro-usuarios/pagina-cadastro-usuarios.component';
 import { PaginaSobreComponent } from './pagina-sobre/pagina-sobre.component';
 import { PaginaContatoComponent } from './pagina-contato/pagina-contato.component';
-import { PaginaPostComponent } from './pagina-post/pagina-post.component';
+import { PaginaPostComponent, PostEditDialogComponent } from './pagina-post/pagina-post.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +22,8 @@ import {
   MatSidenavModule,
   MatTableModule,
   MatToolbarModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
@@ -38,7 +39,8 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
     PaginaContatoComponent,
     MenuComponent,
     PaginaPostComponent,
-    PaginaComentariosComponent
+    PaginaComentariosComponent,
+    PostEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,11 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
     MatToolbarModule,
     LayoutModule,
     MatGridListModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    PostEditDialogComponent,
+    PaginaPostComponent
   ],
   providers: [
     AppService

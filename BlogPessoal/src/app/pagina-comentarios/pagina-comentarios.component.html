@@ -22,44 +22,47 @@
 </div>
 
 <div class="comment-container">
-  <div class="divOne">
-    <form class="example-container" [formGroup]="commentForm" (ngSubmit)="addComment(commentForm.value)">
-      <div>
+  <mat-card class="item-card">
+    <form [formGroup]="commentForm" (ngSubmit)="addComment(commentForm.value)">
+      <mat-card-header>
         <mat-form-field class="email">
           <input matInput name="email" placeholder="Email" formControlName="email">
         </mat-form-field>
         <mat-form-field class="title">
           <input matInput name="title" placeholder="Título" formControlName="title">
         </mat-form-field>
-        <button type="submit" [disabled]="!commentForm.valid" mat-raised-button color="primary">Enviar</button>
-      </div>
-      <div>
+      </mat-card-header>
+      <mat-card-content>
         <mat-form-field class="body">
-          <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMaxRows="10" cdkAutosizeMinRows="10"
+          <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMaxRows="10" cdkAutosizeMinRows="5"
             matInput name="body" placeholder="Comentário" formControlName="body"></textarea>
         </mat-form-field>
-      </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="btnSend" type="submit" [disabled]="!commentForm.valid" mat-raised-button color="primary">Enviar</button>
+      </mat-card-actions>
     </form>
-  </div>
-  <div class="divTwo">
-    <mat-list>
-      <h2> Comentários </h2>
-      <mat-list-item *ngFor="let comment of commentSource">
-        <p matLine>
-          <span class="mat-h2"> {{comment.email}} </span>
-          <span> em {{comment.createdAt}} </span>
-        </p>
-        <p matLine>
-          <span class="mat-h3"> {{comment.title}} </span>
-          <span> -- {{comment.body}} </span>
-        </p>
-        <button color="accent" mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button color="warn" mat-icon-button>
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-list-item>
-    </mat-list>
-  </div>
+  </mat-card>
+
+  <mat-card class="item-card" *ngFor="let comment of commentSource">
+    <mat-card-header>
+      <div mat-card-avatar class="mat-card-avatar"></div>
+      <mat-card-title>{{comment.email}}</mat-card-title>
+      <mat-card-subtitle>Postado em {{comment.createdAt}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span class="mat-h3"> {{comment.title}} </span>
+      <p>
+        {{comment.body}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="btnActions">
+      <button color="accent" mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button color="warn" mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

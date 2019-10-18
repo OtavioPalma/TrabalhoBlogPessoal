@@ -1,5 +1,4 @@
 .container {
-  margin-bottom: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,14 +6,23 @@
 
 .item-card {
   max-width: 80%;
+  min-width: 80%;
 }
 
 .comment-container {
-  margin: 0 5% 0 5%;
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.mat-card-avatar {
+  background-image: url('https://picsum.photos/200');
+  background-size: cover;
+}
+
+mat-card {
   margin-bottom: 25px;
 }
 
@@ -22,23 +30,25 @@ mat-form-field {
   padding: 10px;
 }
 
-.divOne {
-  min-width: 45%;
+.btnActions {
+  position: absolute;
+  right: 5%;
+  top: 10%;
 }
 
-.divTwo {
-  min-width: 45%;
+.btnSend {
+  left: 6%;
 }
 
 .email {
-  min-width: 25%;
+  min-width: 30%;
 }
 
 .title {
-  min-width: 40%;
+  min-width: 55%;
 }
 
 .body {
-  min-width: 85%;
+  margin-left: 4%;
+  min-width: 87%;
 }
-
