@@ -7,15 +7,11 @@
 
 .item-card {
   max-width: 80%;
-  min-width: 80%;
+  min-width: 55%;
 }
 
 mat-card {
   margin-bottom: 25px;
-}
-
-mat-form-field {
-  padding: 10px;
 }
 
 mat-card-actions {
@@ -29,13 +25,15 @@ mat-card-actions {
 }
 
 .name {
-  min-width: 24%;
+  min-width: 25%;
+  margin-right: 10px;
 }
 
 .username {
-  min-width: 24%;
+  min-width: 25%;
+  margin-right: 10px;
 }
 
 .email {
-  min-width: 24%;
+  min-width: 25%;
 }

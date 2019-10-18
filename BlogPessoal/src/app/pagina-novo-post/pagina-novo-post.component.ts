@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
 import { Usuario } from 'src/model/usuario';
@@ -13,11 +12,9 @@ import { AppService } from 'src/service/app.service';
 
 export class PaginaNovoPostComponent implements OnInit {
   postForm: FormGroup;
-  users: string[] = ['username', 'id'];
   dataSource: Usuario[];
 
   constructor(
-    private router: Router,
     private _api: ApiService,
     private formBuilder: FormBuilder,
     private appService: AppService) { }
@@ -36,11 +33,8 @@ export class PaginaNovoPostComponent implements OnInit {
     });
   }
 
-
   addPost(form: NgForm) {
-    this._api.addPost(form).subscribe(res => {
-      console.log(form)
-    }, (err) => {
+    this._api.addPost(form).subscribe(err => {
       console.log(err);
     });
     this.postForm.controls['title'].setValue("");

@@ -16,6 +16,8 @@ export class PaginaComentariosComponent implements OnInit {
   dataSource: Post;
   commentSource: Comentario[];
 
+  post_id: number;
+
   constructor(
     private _api: ApiService,
     private appService: AppService,
@@ -35,32 +37,36 @@ export class PaginaComentariosComponent implements OnInit {
   }
 
   init(id) {
-    this._api.getPost(id)
-      .subscribe(res => {
-        this.dataSource = res;
-      }, err => {
-        console.log(err);
-      });
-
-      this._api.getComments(id)
-      .subscribe(res => {
-        this.commentSource = res;
-      }, err => {
-        console.log(err);
-      });
+    this.post_id = id;
+    this._api.getPost(id).subscribe(res => {
+      this.dataSource = res;
+    }, err => {
+      console.log(err);
+    });
+    this.loadComments();
   }
 
   addComment(form: NgForm) {
     this._api.addComment(form)
-      .subscribe(res => {
-      }, (err) => {
-        console.log(err);
-      });
+      .subscribe(() => {
+        this.loadComments();
+      },
+        err => {
+          console.log(err);
+        });
     this.commentForm.controls['title'].setValue("");
     this.commentForm.controls['title'].setErrors(null);
     this.commentForm.controls['body'].setValue("");
     this.commentForm.controls['body'].setErrors(null);
     this.commentForm.controls['email'].setValue("");
     this.commentForm.controls['email'].setErrors(null);
+  }
+
+  loadComments() {
+    this._api.getComments(this.post_id).subscribe(res => {
+      this.commentSource = res;
+    }, err => {
+      console.log(err);
+    });
   }
 }

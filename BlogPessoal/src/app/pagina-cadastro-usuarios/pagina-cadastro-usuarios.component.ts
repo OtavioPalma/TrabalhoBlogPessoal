@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/service/app.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
-import { Usuario } from 'src/model/usuario';
 
 @Component({
   selector: 'app-pagina-cadastro-usuarios',

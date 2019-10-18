@@ -8,27 +8,27 @@
 
 .item-card {
   max-width: 80%;
-  min-width: 80%;
+  min-width: 60%;
   margin-bottom: 25px;
 }
 
-mat-form-field {
-  padding: 10px;
-}
-
-.btnSend {
-  left: 6%;
+mat-card-actions {
+  margin-bottom: -1%;
 }
 
 .title {
-  min-width: 42%;
+  min-width: 60%;
+  margin-right: 10px;;
 }
 
 .users {
-  min-width: 42%;
+  min-width: 38%;
 }
 
 .body {
-  margin-left: 4%;
-  min-width: 87%;
+  min-width: 100%;
+}
+
+.btnSend {
+  left: 1%;
 }

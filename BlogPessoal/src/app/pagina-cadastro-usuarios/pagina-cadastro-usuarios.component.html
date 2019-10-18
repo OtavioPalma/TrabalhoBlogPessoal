@@ -1,7 +1,7 @@
   <div class="container">
     <mat-card class="item-card">
       <form [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)">
-        <mat-card-header>
+        <mat-card-content>
           <mat-form-field class="name">
             <input matInput name="name" placeholder="Nome" formControlName="name">
           </mat-form-field>
@@ -11,7 +11,7 @@
           <mat-form-field class="email">
             <input matInput name="email" placeholder="Email" formControlName="email">
           </mat-form-field>
-        </mat-card-header>
+        </mat-card-content>
         <mat-card-actions>
           <button class="btnSend" type="submit" [disabled]="!userForm.valid" mat-raised-button
             color="primary">Adicionar</button>

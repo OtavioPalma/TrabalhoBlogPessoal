@@ -34,6 +34,16 @@ export class ApiService {
       .pipe(catchError(this.handleError<Post>('addPost')));
   }
 
+  updatePost(id, post): Observable<any> {
+    return this.http.put(`http://localhost:5000/api/post/${id}`, post, httpOptions)
+      .pipe(catchError(this.handleError<Post>('addPost')));
+  }
+
+  deletePost(id): Observable<Post> {
+    return this.http.delete<Post>(`http://localhost:5000/api/post/${id}`, httpOptions)
+      .pipe(catchError(this.handleError<Post>('deletePost')));
+  }
+
   getUsers(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>('http://localhost:5000/api/users')
       .pipe(catchError(this.handleError(`getUsers`, [])));

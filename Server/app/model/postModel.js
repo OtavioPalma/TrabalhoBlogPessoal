@@ -34,7 +34,7 @@ Post.getAllPosts = function (result) {
 };
 
 Post.getPostById = function (postId, result) {
-    sql.query("SELECT p.title, p.body, u.username, DATE_FORMAT(p.createdAt, '%d/%m/%Y às %H:%i') AS createdAt FROM post p INNER JOIN user u ON u.id = p.user_id WHERE p.id = " + postId, function (err, res) {
+    sql.query("SELECT u.id, p.title, p.body, u.username, DATE_FORMAT(p.createdAt, '%d/%m/%Y às %H:%i') AS createdAt FROM post p INNER JOIN user u ON u.id = p.user_id WHERE p.id = ?", postId, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -43,5 +43,27 @@ Post.getPostById = function (postId, result) {
         }
     });
 };
+
+Post.updateById = function (postId, post, result) {
+    sql.query("UPDATE post SET title = ?, body = ?, user_id = ? WHERE id = ?", [post.title, post.body, post.userId, postId], function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        } else {
+            result(null, res);
+        }
+    });
+}
+
+Post.remove = function (id, result) {
+    sql.query("DELETE FROM post WHERE id = ?", id, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+        } else {
+            result(null, res);
+        }
+    });
+}
 
 module.exports = Post;

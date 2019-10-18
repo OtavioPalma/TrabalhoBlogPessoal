@@ -7,7 +7,7 @@ import { PaginaNovoPostComponent } from './pagina-novo-post/pagina-novo-post.com
 import { PaginaCadastroUsuariosComponent } from './pagina-cadastro-usuarios/pagina-cadastro-usuarios.component';
 import { PaginaSobreComponent } from './pagina-sobre/pagina-sobre.component';
 import { PaginaContatoComponent } from './pagina-contato/pagina-contato.component';
-import { PaginaPostComponent, PostEditDialogComponent } from './pagina-post/pagina-post.component';
+import { PaginaPostComponent } from './pagina-post/pagina-post.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
+import { PostDialogComponent } from './post-dialog/post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
     MenuComponent,
     PaginaPostComponent,
     PaginaComentariosComponent,
-    PostEditDialogComponent
+    PostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,7 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
     MatDialogModule
   ],
   entryComponents: [
-    PostEditDialogComponent,
+    PostDialogComponent,
     PaginaPostComponent
   ],
   providers: [

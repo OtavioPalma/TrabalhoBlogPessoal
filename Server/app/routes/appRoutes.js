@@ -7,7 +7,9 @@ module.exports = function (app) {
         .post(todoList.create_a_post);
 
     app.route('/api/post/:id')
-        .get(todoList.read_a_post);
+        .get(todoList.read_a_post)
+        .put(todoList.update_a_post)
+        .delete(todoList.delete_a_post);
 
     app.route('/api/users')
         .get(todoList.list_all_users)

@@ -8,30 +8,24 @@
 
 .item-card {
   max-width: 80%;
-  min-width: 80%;
-}
-
-mat-card {
-  margin-bottom: 25px;
-}
-
-mat-form-field {
-  padding: 10px;
-}
-
-.btnSend {
-  left: 6%;
+  min-width: 40%;
 }
 
 .name {
-  min-width: 42%;
+  min-width: 49%;
+  margin-right: 10px;
 }
 
 .email {
-  min-width: 42%;
+  min-width: 49%;
 }
 
 .body {
-  margin-left: 4%;
-  min-width: 87%;
+  min-width: 100%;
+}
+
+.btnSend {
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
 }

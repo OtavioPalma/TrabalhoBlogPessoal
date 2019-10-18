@@ -4,6 +4,8 @@ var Post = require('../model/postModel');
 var User = require('../model/userModel');
 var Comment = require('../model/commentModel');
 
+/* POSTS */
+
 exports.list_all_posts = function (req, res) {
     Post.getAllPosts(function (err, post) {
         if (err)
@@ -28,6 +30,26 @@ exports.create_a_post = function (req, res) {
         res.json(post);
     });
 };
+
+exports.update_a_post = function (req, res) {
+    Post.updateById(req.params.id, new Post(req.body), function (err, post) {
+        if (err)
+            res.send(err);
+        res.json(post);
+    })
+}
+
+exports.delete_a_post = function (req, res) {
+    Post.remove(req.params.id, function (err, post) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Post sucessfully deleted'
+        });
+    });
+}
+
+/* USERS */
 
 exports.list_all_users = function (req, res) {
     User.getAllUsers(function (err, user) {

@@ -1,25 +1,25 @@
-<div class="container">
-  <mat-card class="item-card" *ngFor="let post of dataSource">
-    <mat-card-header>
-      <mat-card-title>{{post.title}}</mat-card-title>
-      <mat-card-subtitle> {{post.username}} em {{post.createdAt}} </mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://picsum.photos/750/600?random={{dataSource.indexOf(post)}}">
-    <mat-card-content>
-      <p>
-        {{post.body}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions class="button">
-      <button mat-raised-button color="primary" routerLink="/comentario/{{post.id}}">Continuar Lendo</button>
-      <div class="button-end">
-        <button (click)="edit()" color="accent" mat-icon-button> 
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button color="warn" mat-icon-button>
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-    </mat-card-actions>
+<div class="container" [@loadPost]="currentState">
+  <mat-card class="item-card" *ngFor="let post of dataSource; let i = index">
+      <mat-card-header>
+        <mat-card-title>{{post.title}}</mat-card-title>
+        <mat-card-subtitle> {{post.username}} em {{post.createdAt}} </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://picsum.photos/750/600?random={{i}}">
+      <mat-card-content>
+        <p>
+          {{post.body}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="button">
+        <button mat-raised-button color="primary" routerLink="/comentario/{{post.id}}">Continuar Lendo</button>
+        <div class="button-end">
+          <button (click)="openDialog($event, post.id)" color="accent" mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="deletePost($event, post.id)" color="warn" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
   </mat-card>
 </div>
