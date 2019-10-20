@@ -68,6 +68,8 @@ exports.create_a_user = function (req, res) {
     });
 };
 
+/* COMMENTS */
+
 exports.list_all_comments = function (req, res) {
     Comment.getAllComments(req.params.post_id, function (err, comment) {
         if (err)
@@ -84,3 +86,29 @@ exports.create_a_comment = function (req, res) {
         res.json(comment);
     });
 };
+
+exports.read_a_comment = function (req, res) {
+    Comment.getCommentById(req.params.id, function (err, post) {
+        if (err)
+            res.send(err);
+        res.json(post);
+    });
+};
+
+exports.update_a_comment = function (req, res) {
+    Comment.updateById(req.params.id, new Comment(req.body), function (err, post) {
+        if (err)
+            res.send(err);
+        res.json(post);
+    })
+}
+
+exports.delete_a_comment = function (req, res) {
+    Comment.remove(req.params.id, function (err, post) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Comment sucessfully deleted'
+        });
+    });
+}

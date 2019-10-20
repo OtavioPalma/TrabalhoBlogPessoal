@@ -15,6 +15,11 @@ module.exports = function (app) {
         .get(todoList.list_all_users)
         .post(todoList.create_a_user);
 
+    app.route('/api/comment/:id')
+        .get(todoList.read_a_comment)
+        .put(todoList.update_a_comment)
+        .delete(todoList.delete_a_comment);
+
     app.route('/api/comments')
         .post(todoList.create_a_comment);
 

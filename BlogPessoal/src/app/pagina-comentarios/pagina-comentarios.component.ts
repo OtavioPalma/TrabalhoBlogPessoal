@@ -5,6 +5,8 @@ import { ApiService } from 'src/service/api.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comentario } from 'src/model/comentario';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
 
 @Component({
   selector: 'app-pagina-comentarios',
@@ -14,6 +16,8 @@ import { Comentario } from 'src/model/comentario';
 export class PaginaComentariosComponent implements OnInit {
   commentForm: FormGroup;
   dataSource: Post;
+  newDataSource: Comentario;
+  editSource: Comentario;
   commentSource: Comentario[];
 
   post_id: number;
@@ -22,6 +26,7 @@ export class PaginaComentariosComponent implements OnInit {
     private _api: ApiService,
     private appService: AppService,
     private router: Router,
+    public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute) { }
 
@@ -68,5 +73,49 @@ export class PaginaComentariosComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  openDialog(event, id) {
+    console.log(id)
+    this._api.getComment(id).subscribe(res => {
+      this.editSource = res;
+      this.send(id);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  deleteComment(event, id) {
+    this._api.deleteComment(id).subscribe(() => {
+      this.loadComments();
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  send(id) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      title: this.editSource[0].title,
+      body: this.editSource[0].body,
+      email: this.editSource[0].email,
+      id: id
+    };
+
+    const dialogRef = this.dialog.open(CommentDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data =>
+        this._api.updateComment(id, data).subscribe(res => {
+          this.newDataSource = res;
+          this.loadComments();
+        }, err => {
+          console.log(err);
+        })
+    );
   }
 }

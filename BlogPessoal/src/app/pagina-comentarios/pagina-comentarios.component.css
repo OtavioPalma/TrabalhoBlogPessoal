@@ -17,11 +17,6 @@
   margin-bottom: 25px;
 }
 
-.mat-card-avatar {
-  background-image: url('https://picsum.photos/200');
-  background-size: cover;
-}
-
 mat-card {
   margin-bottom: 25px;
 }
@@ -33,12 +28,12 @@ mat-card-actions {
 .btnActions {
   position: absolute;
   right: 1%;
-  bottom: 10%;
+  bottom: 5%;
 }
 
 .email {
-  min-width: 30%;
-  margin-right: 10px;
+  min-width: 29%;
+  margin-right: 1%;
 }
 
 .title {

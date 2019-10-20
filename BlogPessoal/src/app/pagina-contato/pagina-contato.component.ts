@@ -24,11 +24,20 @@ export class PaginaContatoComponent implements OnInit {
   }
 
   sendMessage(form: NgForm) {
-    this.contatoForm.controls['name'].setValue("");
+    this.contatoForm.controls['name'].setValue(null);
     this.contatoForm.controls['name'].setErrors(null);
-    this.contatoForm.controls['body'].setValue("");
+    this.contatoForm.controls['body'].setValue(null);
     this.contatoForm.controls['body'].setErrors(null);
-    this.contatoForm.controls['email'].setValue("");
+    this.contatoForm.controls['email'].setValue(null);
+    this.contatoForm.controls['email'].setErrors(null);
+  }
+
+  clean() {
+    this.contatoForm.controls['name'].setValue(null);
+    this.contatoForm.controls['name'].setErrors(null);
+    this.contatoForm.controls['body'].setValue(null);
+    this.contatoForm.controls['body'].setErrors(null);
+    this.contatoForm.controls['email'].setValue(null);
     this.contatoForm.controls['email'].setErrors(null);
   }
 }

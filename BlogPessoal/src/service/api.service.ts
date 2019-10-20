@@ -36,7 +36,7 @@ export class ApiService {
 
   updatePost(id, post): Observable<any> {
     return this.http.put(`http://localhost:5000/api/post/${id}`, post, httpOptions)
-      .pipe(catchError(this.handleError<Post>('addPost')));
+      .pipe(catchError(this.handleError<Post>('updatePost')));
   }
 
   deletePost(id): Observable<Post> {
@@ -56,12 +56,27 @@ export class ApiService {
 
   getComments(post_id): Observable<Comentario[]> {
     return this.http.get<Comentario[]>(`http://localhost:5000/api/comments/${post_id}`)
-      .pipe(catchError(this.handleError<Comentario[]>(`getComment post_id = ${post_id}`, [])));
+      .pipe(catchError(this.handleError<Comentario[]>(`getComments post_id = ${post_id}`, [])));
+  }
+
+  getComment(id): Observable<Comentario> {
+    return this.http.get<Comentario>(`http://localhost:5000/api/comment/${id}`)
+      .pipe(catchError(this.handleError<Comentario>(`getComment id = ${id}`)));
   }
 
   addComment(comment): Observable<Comentario> {
     return this.http.post<Comentario>('http://localhost:5000/api/comments', comment, httpOptions)
       .pipe(catchError(this.handleError<Comentario>('addComment')));
+  }
+
+  updateComment(id, post): Observable<any> {
+    return this.http.put(`http://localhost:5000/api/comment/${id}`, post, httpOptions)
+      .pipe(catchError(this.handleError<Comentario>('updateComment')));
+  }
+
+  deleteComment(id): Observable<Comentario> {
+    return this.http.delete<Comentario>(`http://localhost:5000/api/comment/${id}`, httpOptions)
+      .pipe(catchError(this.handleError<Comentario>('deleteComment')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

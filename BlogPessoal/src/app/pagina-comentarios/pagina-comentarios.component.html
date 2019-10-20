@@ -43,9 +43,9 @@
     </form>
   </mat-card>
 
-  <mat-card class="item-card" *ngFor="let comment of commentSource">
+  <mat-card class="item-card" *ngFor="let comment of commentSource; let i = index">
     <mat-card-header>
-      <div mat-card-avatar class="mat-card-avatar"></div>
+      <img mat-card-avatar src="https://picsum.photos/200/?random={{i}}">
       <mat-card-title>{{comment.email}}</mat-card-title>
       <mat-card-subtitle>Postado em {{comment.createdAt}}</mat-card-subtitle>
     </mat-card-header>
@@ -56,10 +56,10 @@
       </p>
     </mat-card-content>
     <mat-card-actions class="btnActions">
-      <button color="accent" mat-icon-button>
+      <button (click)="openDialog($event, comment.id)" color="accent" mat-icon-button>
         <mat-icon>edit</mat-icon>
       </button>
-      <button color="warn" mat-icon-button>
+      <button (click)="deleteComment($event, comment.id)" color="warn" mat-icon-button>
         <mat-icon>delete</mat-icon>
       </button>
     </mat-card-actions>

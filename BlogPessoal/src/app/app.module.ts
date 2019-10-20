@@ -30,6 +30,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
 import { PostDialogComponent } from './post-dialog/post-dialog.component';
+import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PostDialogComponent } from './post-dialog/post-dialog.component';
     MenuComponent,
     PaginaPostComponent,
     PaginaComentariosComponent,
-    PostDialogComponent
+    PostDialogComponent,
+    CommentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { PostDialogComponent } from './post-dialog/post-dialog.component';
   ],
   entryComponents: [
     PostDialogComponent,
-    PaginaPostComponent
+    PaginaPostComponent,
+    CommentDialogComponent
   ],
   providers: [
     AppService

@@ -16,7 +16,13 @@
       <mat-card-actions>
         <button class="btnSend" type="submit" [disabled]="!contatoForm.valid" mat-raised-button
           color="primary">Enviar</button>
+        <button class="btnClean" type="submit" mat-raised-button (click)="clean()" color="primary">Limpar</button>
       </mat-card-actions>
     </form>
   </mat-card>
+  <div class="socialMedia">
+    <a class="facebookIcon" target="_blank" href="https://www.facebook.com">a</a>
+    <a class="twitterIcon" target="_blank" href="https://www.twitter.com">a</a>
+    <a class="linkedinIcon" target="_blank" href="https://www.linkedin.com">a</a>
+  </div>
 </div>
