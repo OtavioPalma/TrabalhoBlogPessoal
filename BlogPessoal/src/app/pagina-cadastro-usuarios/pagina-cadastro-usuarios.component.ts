@@ -9,7 +9,6 @@ import { ApiService } from 'src/service/api.service';
   styleUrls: ['./pagina-cadastro-usuarios.component.css']
 })
 export class PaginaCadastroUsuariosComponent implements OnInit {
-
   userForm: FormGroup;
 
   constructor(
@@ -37,5 +36,4 @@ export class PaginaCadastroUsuariosComponent implements OnInit {
     this.userForm.controls['email'].setValue("");
     this.userForm.controls['email'].setErrors(null);
   }
-
 }

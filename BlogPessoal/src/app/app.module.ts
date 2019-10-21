@@ -31,6 +31,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
 import { PostDialogComponent } from './post-dialog/post-dialog.component';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
+import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CommentDialogComponent } from './comment-dialog/comment-dialog.componen
     PaginaPostComponent,
     PaginaComentariosComponent,
     PostDialogComponent,
-    CommentDialogComponent
+    CommentDialogComponent,
+    ResultadosBuscaComponent
   ],
   imports: [
     BrowserModule,

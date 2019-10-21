@@ -18,12 +18,14 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>{{title}}</span>
-      <mat-form-field class="spacer">
-        <input matInput type="search">
-        <button mat-icon-button>
+      <form class="spacer">
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="route" name="route">
+        </mat-form-field>
+        <button mat-icon-button routerLinkActive="active" [routerLink]="['/busca', route]" (click)="clear()">
           <mat-icon>search</mat-icon>
         </button>
-      </mat-form-field>
+      </form>
     </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>

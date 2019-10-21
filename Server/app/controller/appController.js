@@ -3,6 +3,7 @@
 var Post = require('../model/postModel');
 var User = require('../model/userModel');
 var Comment = require('../model/commentModel');
+var Search = require('../model/searchModel');
 
 /* POSTS */
 
@@ -36,7 +37,7 @@ exports.update_a_post = function (req, res) {
         if (err)
             res.send(err);
         res.json(post);
-    })
+    });
 }
 
 exports.delete_a_post = function (req, res) {
@@ -100,7 +101,7 @@ exports.update_a_comment = function (req, res) {
         if (err)
             res.send(err);
         res.json(post);
-    })
+    });
 }
 
 exports.delete_a_comment = function (req, res) {
@@ -110,5 +111,15 @@ exports.delete_a_comment = function (req, res) {
         res.json({
             message: 'Comment sucessfully deleted'
         });
+    });
+}
+
+/* SEATCH */
+
+exports.get_search = function (req, res) {
+    Search.getSearch(req.params.string, function (err, search) {
+        if (err)
+            res.send(err);
+        res.json(search);
     });
 }

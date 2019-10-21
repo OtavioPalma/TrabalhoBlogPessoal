@@ -5,6 +5,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Post } from 'src/model/post';
 import { Usuario } from 'src/model/usuario';
 import { Comentario } from 'src/model/comentario';
+import { Busca } from 'src/model/busca';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -77,6 +78,12 @@ export class ApiService {
   deleteComment(id): Observable<Comentario> {
     return this.http.delete<Comentario>(`http://localhost:5000/api/comment/${id}`, httpOptions)
       .pipe(catchError(this.handleError<Comentario>('deleteComment')));
+  }
+
+  getSearch(search): Observable<Busca[]> {
+    console.log(search)
+    return this.http.get<Busca[]>(`http://localhost:5000/api/search/${search}`)
+      .pipe(catchError(this.handleError<Busca[]>('search', [])));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

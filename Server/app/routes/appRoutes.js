@@ -28,4 +28,7 @@ module.exports = function (app) {
 
     app.route('/api/user')
         .post(todoList.create_a_user);
+
+    app.route('/api/search/:string')
+        .get(todoList.get_search);
 };

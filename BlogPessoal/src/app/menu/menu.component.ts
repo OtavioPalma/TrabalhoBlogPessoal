@@ -11,6 +11,7 @@ import { AppService } from 'src/service/app.service';
 })
 export class MenuComponent implements OnInit {
   title: String;
+  route: String;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -18,9 +19,15 @@ export class MenuComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private appService: AppService) { }
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private appService: AppService) { }
 
   ngOnInit() {
     this.appService.getTitle().subscribe(appTitle => this.title = appTitle);
+  }
+
+  clear() {
+    this.route = "";
   }
 }

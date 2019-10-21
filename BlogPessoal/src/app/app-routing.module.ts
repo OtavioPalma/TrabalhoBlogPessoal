@@ -6,6 +6,7 @@ import { PaginaNovoPostComponent } from './pagina-novo-post/pagina-novo-post.com
 import { PaginaSobreComponent } from './pagina-sobre/pagina-sobre.component';
 import { PaginaPostComponent } from './pagina-post/pagina-post.component';
 import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentarios.component';
+import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
     path: 'comentario/:id',
     component: PaginaComentariosComponent,
     data: { title: 'Comentários' }
+  },
+  {
+    path: 'busca/:string',
+    component: ResultadosBuscaComponent,
   },
   {
     path: '',
