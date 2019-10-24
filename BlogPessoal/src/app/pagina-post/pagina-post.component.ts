@@ -39,6 +39,7 @@ export class PaginaPostComponent implements OnInit {
   newDataSource: Post;
   editSource: Post;
   currentState = 'initial';
+  p: number = 1;
 
   constructor(
     private _api: ApiService,

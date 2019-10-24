@@ -32,6 +32,7 @@ import { PaginaComentariosComponent } from './pagina-comentarios/pagina-comentar
 import { PostDialogComponent } from './post-dialog/post-dialog.component';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
 import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.co
     ResultadosBuscaComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
