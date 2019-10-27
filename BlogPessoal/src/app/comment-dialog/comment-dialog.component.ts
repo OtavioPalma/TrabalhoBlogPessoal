@@ -39,9 +39,4 @@ export class CommentDialogComponent implements OnInit {
   save() {
     this.dialogRef.close(this.editForm.value);
   }
-
-  close() {
-    this.dialogRef.close();
-  }
-
 }

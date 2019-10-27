@@ -47,9 +47,4 @@ export class PostDialogComponent implements OnInit {
   save() {
     this.dialogRef.close(this.editForm.value);
   }
-
-  close() {
-    this.dialogRef.close();
-  }
-
 }

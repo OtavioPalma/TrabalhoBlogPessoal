@@ -19,7 +19,6 @@ export class PaginaComentariosComponent implements OnInit {
   newDataSource: Comentario;
   editSource: Comentario;
   commentSource: Comentario[];
-
   post_id: number;
 
   constructor(

@@ -81,7 +81,6 @@ export class ApiService {
   }
 
   getSearch(search): Observable<Busca[]> {
-    console.log(search)
     return this.http.get<Busca[]>(`http://localhost:5000/api/search/${search}`)
       .pipe(catchError(this.handleError<Busca[]>('search', [])));
   }

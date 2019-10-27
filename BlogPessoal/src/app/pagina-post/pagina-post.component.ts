@@ -76,7 +76,6 @@ export class PaginaPostComponent implements OnInit {
   send(id) {
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
@@ -88,8 +87,7 @@ export class PaginaPostComponent implements OnInit {
 
     const dialogRef = this.dialog.open(PostDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
-      data =>
+    dialogRef.afterClosed().subscribe(data =>
         this._api.updatePost(id, data).subscribe(res => {
           this.newDataSource = res;
           this.loadPosts();

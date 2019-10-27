@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/service/api.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Busca } from 'src/model/busca';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-resultados-busca',
