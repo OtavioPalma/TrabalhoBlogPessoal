@@ -1,4 +1,20 @@
-<div class="container">
+<div class="header-container">
+  <mat-card class="item-card">
+    <form>
+      <mat-card-content>
+        <mat-form-field class="search">
+          <input matInput type="text" name="newSearch" [(ngModel)]="newSearch" placeholder="Nova Busca">
+        </mat-form-field>
+        <button class="btnSearch" mat-raised-button color="primary" (click)="search(newSearch)">
+          <mat-icon>
+            search
+          </mat-icon>
+        </button>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>
+<div class="container" [@loadSearch]="currentState">
   <mat-card class="item-card" *ngFor="let data of dataSource; let i = index">
     <mat-card-header>
       <mat-card-title>{{data.title}}</mat-card-title>

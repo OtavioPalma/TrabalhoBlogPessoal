@@ -6,10 +6,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { transformAll } from '@angular/compiler/src/render3/r3_ast';
 
 export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
 }
 
 @Component({

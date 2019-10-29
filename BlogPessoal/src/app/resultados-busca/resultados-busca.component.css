@@ -1,3 +1,18 @@
+.header-container {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  min-width: 90%;
+}
+
+.btnSearch {
+  margin-left: 1%;
+}
+
 .container {
   margin-bottom: 25px;
   margin-right: 20px;
@@ -17,6 +32,7 @@
 mat-card-content {
   max-height: 100px;
   overflow: hidden;
+  margin-bottom: -1%;
 }
 
 .button {

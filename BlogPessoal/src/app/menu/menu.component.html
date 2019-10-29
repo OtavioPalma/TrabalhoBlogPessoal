@@ -22,7 +22,7 @@
         <mat-form-field>
           <input matInput type="text" [(ngModel)]="route" name="route">
         </mat-form-field>
-        <button mat-icon-button routerLinkActive="active" [routerLink]="['/busca', route]" (click)="clear()">
+        <button mat-icon-button routerLinkActive="active" routerLink="/busca/{{route}}" (click)="clear()">
           <mat-icon>search</mat-icon>
         </button>
       </form>

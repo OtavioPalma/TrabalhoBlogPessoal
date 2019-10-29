@@ -22,6 +22,7 @@
 }
 
 .spacer {
+  top: 5%;
   position: absolute;
   right: 5%;
   font-size: 1rem;
