@@ -76,7 +76,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommentDialogComponent
   ],
   providers: [
-    AppService
+    AppService,
+    MenuComponent
   ],
   bootstrap: [
     AppComponent

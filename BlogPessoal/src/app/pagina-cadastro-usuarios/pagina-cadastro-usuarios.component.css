@@ -16,13 +16,8 @@ mat-card {
 }
 
 mat-card-actions {
-  margin-bottom: -25px;
-}
-
-.btnSend {
-  position: absolute;
-  right: 5%;
-  top: 30%
+  margin-left: .5%;
+  margin-bottom: -.5%;
 }
 
 .name {
@@ -36,5 +31,5 @@ mat-card-actions {
 }
 
 .email {
-  min-width: 25%;
+  min-width: 45%;
 }

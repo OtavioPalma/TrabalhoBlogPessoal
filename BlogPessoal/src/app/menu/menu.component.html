@@ -18,7 +18,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>{{title}}</span>
-      <form class="spacer">
+      <form *ngIf="show" class="spacer">
         <mat-form-field>
           <input matInput type="text" [(ngModel)]="route" name="route">
         </mat-form-field>

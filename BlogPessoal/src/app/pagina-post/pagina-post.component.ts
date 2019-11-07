@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { MenuComponent } from '../menu/menu.component';
 
 export interface DialogData {
 }
@@ -18,11 +19,9 @@ export interface DialogData {
     trigger('loadPost', [
       state('initial', style({
         opacity: '0',
-        transform: 'scale(0)'
       })),
       state('final', style({
         opacity: '1',
-        transform: 'scale(1)'
       })),
       transition('initial=>final', animate('1000ms')),
     ]),
@@ -30,6 +29,7 @@ export interface DialogData {
 })
 
 export class PaginaPostComponent implements OnInit {
+  menu: MenuComponent;
   title: string;
   body: string;
   data: any;
@@ -43,7 +43,11 @@ export class PaginaPostComponent implements OnInit {
     private _api: ApiService,
     private appService: AppService,
     public dialog: MatDialog,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    menu: MenuComponent) {
+      this.menu = menu;
+      this.menu.show = true;
+  }
 
   ngOnInit() {
     this.appService.setTitle('Página Principal');
@@ -86,12 +90,12 @@ export class PaginaPostComponent implements OnInit {
     const dialogRef = this.dialog.open(PostDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data =>
-        this._api.updatePost(id, data).subscribe(res => {
-          this.newDataSource = res;
-          this.loadPosts();
-        }, err => {
-          console.log(err);
-        })
+      this._api.updatePost(id, data).subscribe(res => {
+        this.newDataSource = res;
+        this.loadPosts();
+      }, err => {
+        console.log(err);
+      })
     );
   }
 

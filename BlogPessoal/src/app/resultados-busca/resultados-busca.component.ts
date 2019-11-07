@@ -26,6 +26,7 @@ export class ResultadosBuscaComponent implements OnInit {
   dataSource: Busca[];
   newSearch: string
   currentState = 'initial';
+  show: boolean = true
 
   constructor(
     private appService: AppService,

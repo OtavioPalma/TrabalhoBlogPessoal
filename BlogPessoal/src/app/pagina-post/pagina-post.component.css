@@ -28,3 +28,14 @@ mat-card-content {
   position: absolute;
   right: 5%;
 }
+
+pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-pagination /deep/ .ngx-pagination .current {
+  background: #673ab7;
+  border-radius: 4px;
+}

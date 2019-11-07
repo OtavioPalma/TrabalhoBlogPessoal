@@ -3,13 +3,17 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AppService } from 'src/service/app.service';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
+@Injectable()
 export class MenuComponent implements OnInit {
+  show: boolean = true
   title: String;
   route: String;
 
@@ -29,5 +33,6 @@ export class MenuComponent implements OnInit {
 
   clear() {
     this.route = "";
+    this.show = false;
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/service/app.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-pagina-cadastro-usuarios',
@@ -10,11 +11,16 @@ import { ApiService } from 'src/service/api.service';
 })
 export class PaginaCadastroUsuariosComponent implements OnInit {
   userForm: FormGroup;
+  menu: MenuComponent;
 
   constructor(
     private _api: ApiService,
     private formBuilder: FormBuilder,
-    private appService: AppService) { }
+    private appService: AppService,
+    menu: MenuComponent) {
+      this.menu = menu;
+      this.menu.show = true;
+  }
 
   ngOnInit() {
     this.appService.setTitle('Novo Usuário');

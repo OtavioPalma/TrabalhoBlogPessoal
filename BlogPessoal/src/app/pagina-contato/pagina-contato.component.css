@@ -26,16 +26,9 @@
   min-width: 100%;
 }
 
-.btnSend {
-  position: absolute;
-  left: 3%;
-  bottom: 5%;
-}
-
-.btnClean {
-  position: absolute;
-  left: 15%;
-  bottom: 5%;
+mat-card-actions {
+  margin-left: .5%;
+  margin-bottom: -1%;
 }
 
 .socialMedia {

@@ -32,7 +32,6 @@
 mat-card-content {
   max-height: 100px;
   overflow: hidden;
-  margin-bottom: -1%;
 }
 
 .button {

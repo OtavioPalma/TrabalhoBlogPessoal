@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comentario } from 'src/model/comentario';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MenuComponent } from '../menu/menu.component';
 import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
 
 @Component({
@@ -20,6 +21,7 @@ export class PaginaComentariosComponent implements OnInit {
   editSource: Comentario;
   commentSource: Comentario[];
   post_id: number;
+  menu: MenuComponent;
 
   constructor(
     private _api: ApiService,
@@ -27,7 +29,11 @@ export class PaginaComentariosComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    menu: MenuComponent) {
+      this.menu = menu;
+      this.menu.show = true;
+  }
 
   ngOnInit() {
     this.init(this.route.snapshot.params['id']);
