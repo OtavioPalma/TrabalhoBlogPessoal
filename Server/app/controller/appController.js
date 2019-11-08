@@ -114,7 +114,7 @@ exports.delete_a_comment = function (req, res) {
     });
 }
 
-/* SEATCH */
+/* SEARCH */
 
 exports.get_search = function (req, res) {
     Search.getSearch(req.params.string, function (err, search) {
