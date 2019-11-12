@@ -8,11 +8,23 @@ import { Comentario } from 'src/model/comentario';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { MenuComponent } from '../menu/menu.component';
 import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-pagina-comentarios',
   templateUrl: './pagina-comentarios.component.html',
-  styleUrls: ['./pagina-comentarios.component.css']
+  styleUrls: ['./pagina-comentarios.component.css'],
+  animations: [
+    trigger('loadPost', [
+      state('initial', style({
+        opacity: '0',
+      })),
+      state('final', style({
+        opacity: '1',
+      })),
+      transition('initial=>final', animate('1000ms')),
+    ])
+  ]
 })
 export class PaginaComentariosComponent implements OnInit {
   commentForm: FormGroup;
@@ -22,6 +34,7 @@ export class PaginaComentariosComponent implements OnInit {
   commentSource: Comentario[];
   post_id: number;
   menu: MenuComponent;
+  currentState = 'initial';
 
   constructor(
     private _api: ApiService,
@@ -31,8 +44,8 @@ export class PaginaComentariosComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     menu: MenuComponent) {
-      this.menu = menu;
-      this.menu.show = true;
+    this.menu = menu;
+    this.menu.show = true;
   }
 
   ngOnInit() {
@@ -75,6 +88,7 @@ export class PaginaComentariosComponent implements OnInit {
   loadComments() {
     this._api.getComments(this.post_id).subscribe(res => {
       this.commentSource = res;
+      this.currentState = 'final';
     }, err => {
       console.log(err);
     });

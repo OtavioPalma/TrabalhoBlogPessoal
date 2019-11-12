@@ -7,8 +7,9 @@ import { MenuComponent } from '../menu/menu.component';
 @Component({
   selector: 'app-pagina-cadastro-usuarios',
   templateUrl: './pagina-cadastro-usuarios.component.html',
-  styleUrls: ['./pagina-cadastro-usuarios.component.css']
+  styleUrls: ['./pagina-cadastro-usuarios.component.css'],
 })
+
 export class PaginaCadastroUsuariosComponent implements OnInit {
   userForm: FormGroup;
   menu: MenuComponent;
@@ -18,8 +19,8 @@ export class PaginaCadastroUsuariosComponent implements OnInit {
     private formBuilder: FormBuilder,
     private appService: AppService,
     menu: MenuComponent) {
-      this.menu = menu;
-      this.menu.show = true;
+    this.menu = menu;
+    this.menu.show = true;
   }
 
   ngOnInit() {

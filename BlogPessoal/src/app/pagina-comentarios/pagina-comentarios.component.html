@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [@loadPost]="currentState">
   <mat-card class="item-card" *ngFor="let post of dataSource">
     <mat-card-header>
       <mat-card-title>{{post.title}}</mat-card-title>
@@ -21,7 +21,7 @@
   </mat-list>
 </div>
 
-<div class="comment-container">
+<div class="comment-container" [@loadPost]="currentState">
   <mat-card class="item-card">
     <form [formGroup]="commentForm" (ngSubmit)="addComment(commentForm.value)">
       <mat-card-content>
